@@ -1,0 +1,19 @@
+CRITICAL - 2022-04-02 05:43:06 --> Invalid file: signup1.php
+#0 E:\wamp\www\rahulworkspace\review_system\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('signup1.php')
+#1 E:\wamp\www\rahulworkspace\review_system\system\Common.php(1089): CodeIgniter\View\View->render('signup1', Array, true)
+#2 E:\wamp\www\rahulworkspace\review_system\app\Controllers\Account.php(16): view('signup1')
+#3 E:\wamp\www\rahulworkspace\review_system\system\CodeIgniter.php(832): App\Controllers\Account->register()
+#4 E:\wamp\www\rahulworkspace\review_system\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account))
+#5 E:\wamp\www\rahulworkspace\review_system\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 E:\wamp\www\rahulworkspace\review_system\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-04-02 06:32:36 --> Call to undefined function set_value()
+#0 E:\wamp\www\rahulworkspace\review_system\system\View\View.php(210): include()
+#1 E:\wamp\www\rahulworkspace\review_system\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 E:\wamp\www\rahulworkspace\review_system\system\Common.php(1089): CodeIgniter\View\View->render('login', Array, true)
+#3 E:\wamp\www\rahulworkspace\review_system\app\Controllers\Account.php(22): view('login')
+#4 E:\wamp\www\rahulworkspace\review_system\system\CodeIgniter.php(832): App\Controllers\Account->login()
+#5 E:\wamp\www\rahulworkspace\review_system\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account))
+#6 E:\wamp\www\rahulworkspace\review_system\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 E:\wamp\www\rahulworkspace\review_system\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}

@@ -1,0 +1,11 @@
+CRITICAL - 2022-03-15 04:58:19 --> Use of undefined constant showme - assumed 'showme' (this will throw an Error in a future version of PHP)
+#0 E:\wamp\www\rahulworkspace\review_system\app\Views\signup_page.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Use of undefine...', 'E:\\wamp\\www\\rah...', 3, Array)
+#1 E:\wamp\www\rahulworkspace\review_system\system\View\View.php(210): include('E:\\wamp\\www\\rah...')
+#2 E:\wamp\www\rahulworkspace\review_system\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\wamp\www\rahulworkspace\review_system\system\Common.php(1089): CodeIgniter\View\View->render('signup_page', Array, true)
+#4 E:\wamp\www\rahulworkspace\review_system\app\Controllers\Signup.php(14): view('signup_page')
+#5 E:\wamp\www\rahulworkspace\review_system\system\CodeIgniter.php(832): App\Controllers\Signup->showme()
+#6 E:\wamp\www\rahulworkspace\review_system\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Signup))
+#7 E:\wamp\www\rahulworkspace\review_system\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\wamp\www\rahulworkspace\review_system\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
