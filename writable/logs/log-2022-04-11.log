@@ -1,0 +1,33 @@
+CRITICAL - 2022-04-11 08:37:16 --> Undefined variable: isLoggedIn
+#0 E:\wamp\www\rahulworkspace\review_system\app\Views\home_page.php(2): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'E:\\wamp\\www\\rah...', 2, Array)
+#1 E:\wamp\www\rahulworkspace\review_system\system\View\View.php(210): include('E:\\wamp\\www\\rah...')
+#2 E:\wamp\www\rahulworkspace\review_system\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\wamp\www\rahulworkspace\review_system\system\Common.php(1089): CodeIgniter\View\View->render('home_page.php', Array, true)
+#4 E:\wamp\www\rahulworkspace\review_system\app\Controllers\Account.php(13): view('home_page.php')
+#5 E:\wamp\www\rahulworkspace\review_system\system\CodeIgniter.php(832): App\Controllers\Account->index()
+#6 E:\wamp\www\rahulworkspace\review_system\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account))
+#7 E:\wamp\www\rahulworkspace\review_system\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\wamp\www\rahulworkspace\review_system\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-11 08:38:20 --> Undefined variable: isLoggedIn
+#0 E:\wamp\www\rahulworkspace\review_system\app\Views\home_page.php(2): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'E:\\wamp\\www\\rah...', 2, Array)
+#1 E:\wamp\www\rahulworkspace\review_system\system\View\View.php(210): include('E:\\wamp\\www\\rah...')
+#2 E:\wamp\www\rahulworkspace\review_system\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\wamp\www\rahulworkspace\review_system\system\Common.php(1089): CodeIgniter\View\View->render('home_page.php', Array, true)
+#4 E:\wamp\www\rahulworkspace\review_system\app\Controllers\Account.php(13): view('home_page.php')
+#5 E:\wamp\www\rahulworkspace\review_system\system\CodeIgniter.php(832): App\Controllers\Account->index()
+#6 E:\wamp\www\rahulworkspace\review_system\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account))
+#7 E:\wamp\www\rahulworkspace\review_system\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\wamp\www\rahulworkspace\review_system\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-11 08:38:39 --> Undefined variable: isLoggedIn
+#0 E:\wamp\www\rahulworkspace\review_system\app\Views\home_page.php(2): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'E:\\wamp\\www\\rah...', 2, Array)
+#1 E:\wamp\www\rahulworkspace\review_system\system\View\View.php(210): include('E:\\wamp\\www\\rah...')
+#2 E:\wamp\www\rahulworkspace\review_system\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 E:\wamp\www\rahulworkspace\review_system\system\Common.php(1089): CodeIgniter\View\View->render('home_page.php', Array, true)
+#4 E:\wamp\www\rahulworkspace\review_system\app\Controllers\Account.php(13): view('home_page.php')
+#5 E:\wamp\www\rahulworkspace\review_system\system\CodeIgniter.php(832): App\Controllers\Account->index()
+#6 E:\wamp\www\rahulworkspace\review_system\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account))
+#7 E:\wamp\www\rahulworkspace\review_system\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\wamp\www\rahulworkspace\review_system\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

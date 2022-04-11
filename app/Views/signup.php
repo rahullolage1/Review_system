@@ -16,7 +16,8 @@
   }
 </script>
 
-<div class="container col-md-4">
+
+<div class="container col-md-4" style="margin-top:20px">
   <h2 class="text-primary text-center">Registration Page</h2>
   <hr />
   <form method="post" action="<?php echo base_url() ?>/account/signup_action" onsubmit="return validateUser()">
@@ -66,7 +67,9 @@
       <small id="err" class="text-danger"></small>
     </div>
     <br />
-    <br />
     <button class="btn btn-primary" name="submit">Submit</button>
+    <br />
+    <br />
+    <p>Already have an account <a href ="<?= base_url('account/login'); ?>">Login here</a></p>
   </form>
 </div>
