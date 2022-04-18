@@ -53,14 +53,13 @@
               >
             </li>
           </ul>
-          <?php if(!isset($isLoggedIn)) { ?>
+          <?php if(!session('logged_in')) { ?>
           <li class="d-flex">
             <a
               class="btn btn-primary col-md-12"
               aria-current="page"
               href="<?php echo base_url() ?>/account/login"
-              >Login</a
-            >
+              >Login</a>
           </li>
           &nbsp;
           <li class="d-flex">
@@ -68,19 +67,24 @@
               class="btn btn-primary col-md-12"
               aria-current="page"
               href="<?php echo base_url() ?>/account/signup"
-              >Signup</a
-            >
+              >Signup</a>
           </li>
           <?php } else { ?>
+          <li class="d-flex">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="<?php echo base_url() ?>/UserProfile"
+              >Profile</a>
+          </li>
           <li class="d-flex">
             <a
               class="btn btn-primary col-md-12"
               aria-current="page"
               href="<?php echo base_url() ?>/account/logout"
-              >Logout</a
-            >
+              >Logout</a>
           </li>
-          <?php } ?>
+            <?php } ?>
         </div>
       </div>
     </nav>

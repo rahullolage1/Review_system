@@ -2,11 +2,12 @@
 namespace App\Controllers;
 use App\Models\UserModel;
 
-// Start the session
-session_start();
-
 class Account extends BaseController
 {
+
+    public function __construct(){
+        helper(['form', 'url']);
+    }
 
     public function index(){
         echo view('templates/header');
@@ -15,49 +16,59 @@ class Account extends BaseController
     }
     
     public function signup($err = ''){
-        $isLoggedIn = isset($_SESSION['userData']);
-        if($isLoggedIn) {
-            return redirect()->to('users'); 
-        }
+        // $isLoggedIn = isset($_SESSION['userData']);
+        // if($isLoggedIn) {
+        //     return redirect()->to('users'); 
+        // }
         echo view('templates/header');
         echo view('signup', ['err' => $err]);
         echo view('templates/footer');
     }
 
     public function signup_action(){
-        $model = new UserModel();
-        $name = $this->request->getVar('name');
-        $email = $this->request->getVar('email');
-        $password = $this->request->getVar('password');
 
         // fetch record from DB
-        $isExists = $model->checkUserExists($email);
-        if($isExists) {
-            return redirect()->to('account/signup/exists');
+        $validation = $this->validate([
+            'email' =>[
+            'rules' => 'required|valid_email|is_unique[users.email]',
+            'errors' =>[
+            'required' => 'Email id required', 
+            'valid_email' => 'Enter valid Email id', 
+            'is_unique' => 'Email already exists', 
+            ]
+            ]
+        ]);
+            if(!$validation){
+
+                echo view('templates/header');
+                echo view('signup', ['validation'=>$this->validator]);
+            }else{
+
+                $name = $this->request->getVar('name');
+                $email = $this->request->getVar('email');
+                $password = $this->request->getVar('password');
+                $data =[
+                'name' => $name,
+                'email' => $email,
+                'password' => md5($password)
+                ];
+                $model = new UserModel();
+                $model->insert($data);
+
+                return redirect()->to('account/login');
         }
-
-        $data =[
-            'name' => $name,
-            'email' => $email,
-            'password' => md5($password)
-        ];
-        $model->insert($data);
-
-        return redirect()->to('account/login');
     }
 
     public function login($err = ''){
-        $isLoggedIn = isset($_SESSION['userData']);
-        if($isLoggedIn) {
-            return redirect()->to('users'); 
-        }
         echo view('templates/header');
         echo view('login', ['err' => $err]);
         echo view('templates/footer');
     }
     
     public function login_action(){
+        
         $model = new UserModel();
+        
         $email = $this->request->getVar('email');
         $password = $this->request->getVar('password');
         
@@ -65,19 +76,23 @@ class Account extends BaseController
         $userData = $model->checkLogin($email,md5($password));
         if(!$userData) {
             return redirect()->to('account/login/err');
+        }else{
+        $session = session();
+        $session_data =[
+            'id' => $userData['id'],
+            'name' => $userData['name'],
+            'email' => $userData['email'],
+            'logged_in' => TRUE,
+        ];
+
+            $session->set($session_data);
+            return redirect()->to('Dashboard');
         }
-        // echo "<pre>";
-        // print_r($userData);
-        $_SESSION['userData'] = $userData;
-        return redirect()->to('users'); 
     }
 
     public function logout(){
-       // remove all session variables
-        session_unset();
-
-        // destroy the session
-        session_destroy();
+        $session = session();
+        session()->destroy();
         return redirect()->to('account/login');
     }
 }

@@ -9,11 +9,11 @@ class UserModel extends Model
     protected $table      = 'users';
     protected $allowedFields = ['name', 'email', 'password'];
 
-    public function checkUserExists($email) {
-        $sql="Select * from users where email='$email'";
-        $query = $this->db->query($sql);
-        return $query->getResultArray();
-    }
+    // public function checkUserExists($email) {
+    //     $sql="Select * from users where email='$email'";
+    //     $query = $this->db->query($sql);
+    //     return $query->getResultArray();
+    // }
     
     public function saveUser($name, $email, $password) {
         return $this->insert(array('name' => $name, 'email' => $email, 'password'=>$password));

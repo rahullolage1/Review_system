@@ -30,15 +30,7 @@
       <label>Email</label>
       <input type="email" name="email" class="form-control" value="" required />
     </div>
-    <?php
-    if($err == 'exists'){
-      ?>
-      <div class="form-group">
-      <small class="text-danger"><?php echo "Email already exists"?></small>
-      </div>
-    <?php
-    }
-    ?>
+    <span class="text-danger"><?= isset($validation) ? display_error($validation, 'email') : '' ?></span>
     <br />
     <div class="form-group">
       <label>Password</label>
@@ -70,6 +62,6 @@
     <button class="btn btn-primary" name="submit">Submit</button>
     <br />
     <br />
-    <p>Already have an account <a href ="<?= base_url('account/login'); ?>">Login here</a></p>
+    <p>Already have an account? <a href ="<?= base_url('account/login'); ?>">Login here</a></p>
   </form>
 </div>
