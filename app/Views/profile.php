@@ -4,6 +4,14 @@
     <h6 class="text-center">Add information about yourself</h6>
     <hr />
     <form method="post" enctype="multipart/form-data" action="<?php echo base_url() ?>/UserProfile/photo_action">
+
+      <?php if(session()->getFlashdata('success')) : ?>
+      <div class="alert alert-success"><?= session()->getFlashdata('success'); ?></div>
+      <?php endif ?>
+
+      <?php if(session()->getFlashdata('fail')) : ?>
+      <div class="alert alert-danger"><?= session()->getFlashdata('fail'); ?></div>
+      <?php endif ?>
      
       <div class="form-group">
         <label>Name</label>
@@ -22,11 +30,12 @@
         <br>
         
         <div class="form-group">
-          <!-- <img src="#" with="100px" height="100px"> -->
-          
           <label>Upload Photo:</label>
           <input type="file" name="profilePic">
           <input type="submit" value="Upload">
+          <?php if(session()->has('filepath')){ ?>
+            <img src="<?= session()->getFlashdata('filepath') ?>" width="150px" height="150px"><br>
+            <?php } ?> 
         </div>
         <span class="text-danger"><?= isset($validation) ? display_error($validation, 'profilePic') : '' ?></span>
         <br />

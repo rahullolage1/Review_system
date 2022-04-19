@@ -31,32 +31,22 @@ class UserProfile extends BaseController
                     ]
                 ]
             ]);
-            if($validation){
-                
+            if($validation){               
                 if($file->isValid() && !$file->hasMoved()){
                     $imageName = $file->getRandomName();
-                    if($file->move(WRITEPATH.'uploads/',$imageName)){
-                    // echo "<p>File uploaded successfully</p>";
-                        // $name = session('name');
-                        echo "<pre>";
-                        print_r(session('name'));                        
-
+                    if($file->move(FCPATH.'public/uploads/',$imageName)){
+                        $filepath = base_url().'/public/uploads/'.$imageName;
+                        session()->setFlashdata('filepath', $filepath);
+                        return redirect()->to('UserProfile/')->with('success', 'Photo uploaded successfully');
                     }else{
-                    echo "<p>File uploaded failed</p>";
+                        return redirect()->back()->with('fail', 'Photo not uploaded');
                     }
                 }
             }else{
-            //     // echo "fail";
                 echo view('templates/header');
                 echo view('/profile', ['validation'=>$this->validator]);
             }
         }
-        // echo "<pre>";
-        // print_r($file);
-        // return view('templates/header');
-        // echo view('templates/header');
-        // echo view('profile');
-        // echo view('templates/footer');
     }
 
 }
