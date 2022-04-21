@@ -2,19 +2,20 @@
 
 namespace App\Controllers;
 
-// session_start();
-
 class Dashboard extends BaseController
 {
-    public function index()
-    {
+    
+    public function __construct(){
+        helper(['form', 'url']);
+    }
 
+    public function index()
+    {   
+        if(!session('logged_in')){
+            return redirect()->to('account/login');
+        }
         echo view('templates/header');
         echo view('dashboard');
         echo view('templates/footer');
     }
-
-    // public function create(){
-        
-    // }
 }

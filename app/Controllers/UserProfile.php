@@ -12,7 +12,10 @@ class UserProfile extends BaseController
     }
 
     public function index()
-    {
+    {   
+        if(!session('logged_in')){
+            return redirect()->to('account/login');
+        }
 
         echo view('templates/header');
         echo view('profile');
@@ -37,7 +40,7 @@ class UserProfile extends BaseController
                     if($file->move(FCPATH.'public/uploads/',$imageName)){
                         $filepath = base_url().'/public/uploads/'.$imageName;
                         session()->setFlashdata('filepath', $filepath);
-                        return redirect()->to('UserProfile/')->with('success', 'Photo uploaded successfully');
+                        return redirect()->to('/UserProfile')->with('success', 'Photo uploaded successfully');
                     }else{
                         return redirect()->back()->with('fail', 'Photo not uploaded');
                     }
@@ -47,6 +50,23 @@ class UserProfile extends BaseController
                 echo view('/profile', ['validation'=>$this->validator]);
             }
         }
+    }
+
+    public function update_action(){
+        if(isset($_POST['submit'])){
+            $name = $this->request->getVar('name');
+            $email = $this->request->getVar('email');
+            $password = $this->request->getVar('password');
+            $data =[
+            'name' => $name,
+            'email' => $email,
+            ];
+            echo "<pre>";
+            print_r($data);
+
+        }
+        die();
+        return redirect()->to('/dashboard');
     }
 
 }

@@ -1,0 +1,1 @@
+<h3 class="text-center">Welcome <?php echo session('name'); ?></h3>

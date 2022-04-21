@@ -3,7 +3,7 @@
     <h2 class="text-primary text-center">Profile Page</h2>
     <h6 class="text-center">Add information about yourself</h6>
     <hr />
-    <form method="post" enctype="multipart/form-data" action="<?php echo base_url() ?>/UserProfile/photo_action">
+    <form method="post" enctype="multipart/form-data" action="<?php echo base_url() ?>/UserProfile/update_action">
 
       <?php if(session()->getFlashdata('success')) : ?>
       <div class="alert alert-success"><?= session()->getFlashdata('success'); ?></div>
@@ -32,7 +32,8 @@
         <div class="form-group">
           <label>Upload Photo:</label>
           <input type="file" name="profilePic">
-          <input type="submit" value="Upload">
+          <!-- <input type="submit" value="Upload"> -->
+          <button class="btn btn-sm btn-primary">Upload</button>
           <?php if(session()->has('filepath')){ ?>
             <img src="<?= session()->getFlashdata('filepath') ?>" width="150px" height="150px"><br>
             <?php } ?> 

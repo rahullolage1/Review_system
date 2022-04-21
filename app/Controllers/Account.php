@@ -86,12 +86,15 @@ class Account extends BaseController
         ];
 
             $session->set($session_data);
-            return redirect()->to('Dashboard');
+            // echo "<pre>";
+            // print_r($session_data);
+            // die();
+            return redirect()->to('/dashboard');
         }
     }
 
     public function logout(){
-        $session = session();
+        // $session = session();
         session()->destroy();
         return redirect()->to('account/login');
     }
