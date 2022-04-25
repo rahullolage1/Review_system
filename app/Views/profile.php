@@ -27,6 +27,7 @@
           <label>DOB</label>
           <input type="date" name="dob" class="form-control" value="<?=set_value('dob')?>" />
         </div>
+        <span class="text-danger"><?=isset($validation) ? display_error($validation, 'dob') : ''?></span>
         <br>
 
         <div class="form-group">
