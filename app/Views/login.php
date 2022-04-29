@@ -1,6 +1,9 @@
 <div class="container col-md-4" style="margin-top:25px">
     <h2 class="text-primary text-center">Login Page</h2><br>
     <form method="post" action="<?php echo base_url() ?>/account/login_action">
+        <?php if (session()->getFlashdata('msg')): ?>
+        <div class="alert alert-success"><?=session()->getFlashdata('msg');?></div>
+        <?php endif?>
         <div class="form-group">
             <label>Email</label>
             <input type="text" name="email" class="form-control" value="<?=set_value('email')?>" required>

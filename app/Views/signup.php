@@ -21,6 +21,9 @@
   <h2 class="text-primary text-center">Registration Page</h2>
   <hr />
   <form method="post" action="<?php echo base_url() ?>/account/signup_action" onsubmit="return validateUser()">
+    <?php if (session()->getFlashdata('fail')): ?>
+    <div class="alert alert-danger"><?=session()->getFlashdata('fail');?></div>
+    <?php endif?>
     <div class="form-group">
       <label>Name</label>
       <input type="text" name="name" class="form-control" required />
@@ -30,7 +33,7 @@
       <label>Email</label>
       <input type="email" name="email" class="form-control" value="" required />
     </div>
-    <span class="text-danger"><?= isset($validation) ? display_error($validation, 'email') : '' ?></span>
+    <span class="text-danger"><?=isset($validation) ? display_error($validation, 'email') : ''?></span>
     <br />
     <div class="form-group">
       <label>Password</label>
@@ -62,6 +65,6 @@
     <button class="btn btn-primary" name="submit">Submit</button>
     <br />
     <br />
-    <p>Already have an account? <a href ="<?= base_url('account/login'); ?>">Login here</a></p>
+    <p>Already have an account? <a href ="<?=base_url('account/login');?>">Login here</a></p>
   </form>
 </div>

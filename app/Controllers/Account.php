@@ -20,10 +20,6 @@ class Account extends BaseController
 
     public function signup($err = '')
     {
-        // $isLoggedIn = isset($_SESSION['userData']);
-        // if($isLoggedIn) {
-        //     return redirect()->to('users');
-        // }
         echo view('templates/header');
         echo view('signup', ['err' => $err]);
         echo view('templates/footer');
@@ -58,9 +54,14 @@ class Account extends BaseController
                 'password' => md5($password),
             ];
             $model = new UserModel();
-            $model->insert($data);
+            $query = $model->insert($data);
 
-            return redirect()->to('account/login');
+            if (!$query) {
+                return redirect()->back()->with('fail', 'Something went wrong');
+            } else {
+                return redirect()->to('account/login')->with('msg', 'Registration successful');
+            }
+
         }
     }
 
@@ -92,16 +93,12 @@ class Account extends BaseController
             ];
 
             $session->set($session_data);
-            // echo "<pre>";
-            // print_r($session_data);
-            // die();
             return redirect()->to('/dashboard');
         }
     }
 
     public function logout()
     {
-        // $session = session();
         session()->destroy();
         return redirect()->to('account/login');
     }
